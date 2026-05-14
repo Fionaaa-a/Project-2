@@ -8,5 +8,18 @@
  * @author user
  */
 public class MisinformationCase {
+    private String mediaType;
     
+    public MisinformationCase(String caseTitle, String description, String mediaType) {
+        super(caseTitle, description);
+        this.mediaType = mediaType;
+    }
+    
+    public String getMediaType() {
+        return mediaType;
+    }
+    
+    public String toString() {
+        return "placeholder text";
+    }
 }

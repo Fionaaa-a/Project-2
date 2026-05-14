@@ -8,5 +8,19 @@
  * @author user
  */
 public class PrivacyCase {
+    private String dataType;
     
+    public PrivacyCase(String caseTitle, String description, String dataType) {
+        super(caseTitle, description);
+        this.dataType = dataType;
+    }
+    
+    public String getDataType() {
+        return dataType;
+    }
+    
+    @Override
+    public String toString() {
+        return "placeholder text";
+    }
 }
