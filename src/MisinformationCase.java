@@ -7,11 +7,11 @@
  *
  * @author user
  */
-public class MisinformationCase {
+public class MisinformationCase extends EthicsCase {
     private String mediaType;
     
     public MisinformationCase(String caseTitle, String description, String mediaType) {
-        super(caseTitle, description);
+        super(caseTitle, description, "Misinformation");
         this.mediaType = mediaType;
     }
     

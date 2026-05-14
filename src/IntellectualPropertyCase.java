@@ -7,11 +7,11 @@
  *
  * @author user
  */
-public class IntellectualPropertyCase {
+public class IntellectualPropertyCase extends EthicsCase {
     private String ipType;
     
     public IntellectualPropertyCase(String caseTitle, String description, String ipType) {
-        super(caseTitle, description);
+        super(caseTitle, description, "Intellectual Property");
         this.ipType = ipType;
     }
     
