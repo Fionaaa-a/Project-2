@@ -15,45 +15,48 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        this.setVisible(true);
         cases [0] = new PrivacyCase(
-            "The Always-On Microphone",
-            "Privacy Case", 
-            "A smart speaker company recorded household conversations even when the device was not activated. Employees reviewed the recordings."
+            "The Always-On Microphone",            
+            "A smart speaker company recorded household conversations even when the device was not activated. Employees reviewed the recordings.",
+            "Privacy Case"
         );
         cases [1] = new AlgorithmCase(
             "The Biased Hiring Bot",
-            "Algorithm Case", 
-            "A tech company's AI screening tool ranked male applicants higher than equally qualified female applicants."
+            "A tech company's AI screening tool ranked male applicants higher than equally qualified female applicants.",
+            "Algorithm Case"
         );
         cases [2] = new MisinformationCase(
             "The Deepfake Politician",
-            "Misinformation Case", 
-            "A deepfake video of a candidate saying things they never said spread widely online during an election before being identified as fake."
+            "A deepfake video of a candidate saying things they never said spread widely online during an election before being identified as fake.",
+            "Misinformation Case"
+
         );
         cases [3] = new IntellectualPropertyCase(
             "AI Trained on Artist Work",
-            "Intellectual Property Case", 
-            "An AI image generator was trained on millions of artworks scraped without permission. Artists receive no credit or payment."
+            "An AI image generator was trained on millions of artworks scraped without permission. Artists receive no credit or payment.",
+            "Intellectual Property Case"
         );
         cases [4] = new PrivacyCase(
             "The Constant Tracker",
-            "Privacy Case", 
-            "The company of a weather app software was found to be aware of users exact location even when they did not have the app open."
+            "The company of a weather app software was found to be aware of users exact location even when they did not have the app open.",
+            "Privacy Case"        
         );
         cases [5] = new AlgorithmCase(
             "The Judge",
-            "Algorithm Case", 
-            "An AI model utilized in courthouses for the purpose of distinguishing between faces was trained using mostly light-skinned individuals."
+            "An AI model utilized in courthouses for the purpose of distinguishing between faces was trained using mostly light-skinned individuals.",
+            "Algorithm Case"
+        
         );
         cases [6] = new MisinformationCase(
             "The Deepfake Doctor",
-            "Misinformation Case", 
-            "A deepfake video of a well-known doctor promoting a capsule spread widely online before being identified as fake."
+            "A deepfake video of a well-known doctor promoting a capsule spread widely online before being identified as fake.",
+            "Misinformation Case"
         );
         cases [7] = new IntellectualPropertyCase(
             "Stealing art work",
-            "Intellectual Property Case", 
-            "A company used an artist’s drawing for advertising purpose without asking for permission."
+            "A company used an artist’s drawing for advertising purpose without asking for permission.",
+            "Intellectual Property Case"
         );
 
     }
@@ -82,12 +85,16 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setText("Where do you stand on this scale?");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("A Tech Optimist");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("A Cautious Realist");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("A Critical Thinker");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("An Ethics Watchdog");
 
         jButton1.setText("Start Evaluator");
@@ -102,32 +109,28 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(193, 193, 193)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jButton1)))
-                .addContainerGap(125, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
+                            .addComponent(jButton1))))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
@@ -137,7 +140,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,7 +148,8 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Scenario1().setVisible(true);
+        Scenario1 s1 = new Scenario1(cases); 
+        s1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
