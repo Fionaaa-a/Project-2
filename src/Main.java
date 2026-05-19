@@ -11,6 +11,8 @@ public class Main extends javax.swing.JFrame {
     EthicsCase [] cases= new EthicsCase[8];
     public static String [] verdicts = {"empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"};
     public static int ethical;
+    public static int unethical;
+    public static final int TOTAL = 8;
 
     /**
      * Creates new form Main
