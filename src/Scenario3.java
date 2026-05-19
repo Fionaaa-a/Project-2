@@ -143,6 +143,15 @@ public class Scenario3 extends javax.swing.JFrame {
         Scenario4 s4 = new Scenario4(allCases); 
         s4.setVisible(true);
         this.dispose();
+        
+        if (jRadioButton1.isSelected()) {
+            System.out.println("selected: ethical");
+            Main.ethical++;
+        } else if (jRadioButton2.isSelected()) {
+            System.out.println("selected: unethical");
+        }
+        
+        Main.verdicts[3] = jTextField1.getText();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
