@@ -151,7 +151,7 @@ public class Scenario5 extends javax.swing.JFrame {
             System.out.println("selected: unethical");
         }
         
-        Main.verdicts[5] = jTextField1.getText();
+        Main.verdicts[4] = jTextField1.getText();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
