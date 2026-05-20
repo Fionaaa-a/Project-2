@@ -8,11 +8,7 @@
  * @author user
  */
 public class Main extends javax.swing.JFrame {
-    EthicsCase [] cases= new EthicsCase[8];
-    public static String [] verdicts = {"empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"};
-    public static int ethical;
-    public static int unethical;
-    public static final int TOTAL = 8;
+    public static EthicsCase [] cases = new EthicsCase[8];
 
     /**
      * Creates new form Main
@@ -152,8 +148,10 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Scenario1 s1 = new Scenario1(cases); 
-        s1.setVisible(true);
+//        Scenario1 s1 = new Scenario1(cases); 
+//        s1.setVisible(true);
+
+        new Sc1().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
