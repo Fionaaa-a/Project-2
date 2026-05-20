@@ -145,7 +145,7 @@ public class Sc4 extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Sc5().setVisible(true);
         this.setVisible(false);
-        Main.cases[1].verdict.setReason(jTextArea2.getText());
+        Main.cases[3].verdict.setReason(jTextArea2.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
