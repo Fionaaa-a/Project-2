@@ -4,6 +4,9 @@
  */
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileWriter;
 
 /**
  *
@@ -21,9 +24,10 @@ public class Results extends javax.swing.JFrame {
             public void windowActivated(WindowEvent e) {
                 System.out.println("JFrame is now focused!");
                 //add code here
+                // initialize variables
                 int ethicalCount = 0;
                 int unethicalCount = 0;
-                
+                // loop through cases and count verdicts
                 for (int i = 0; i < Main.cases.length; i++) {
                     if (Main.cases[i].verdict != null) {
                         String v = Main.cases[i].verdict.getStudentVerdict();
@@ -32,38 +36,42 @@ public class Results extends javax.swing.JFrame {
                             ethicalCount++;
                         } else if (v.equals("unethical")) {
                             unethicalCount++;
-                        }
-                    }
-                }
+                        } // end if-statement
+                    } // end if-statement
+                } // end for-loop
                 
                 jLabel4.setText(Integer.toString(ethicalCount));
                 jLabel5.setText(Integer.toString(unethicalCount));
                 
+                // profile: the tech optimist - between 0 and 2 (inclusive) unethical verdicts
                 if (unethicalCount <= 2) {
                     jLabel7.setText("The Tech Optimist");
                     jTextArea1.setText(
                             "You see technology as largely a force for good. " +
                             "You tend to trust that companies and developers have good intentions."
                     );
+                // profile: the cautious realist - between 2 (exclusive) and 4 (inclusive) unethical verdicts
                 } else if (unethicalCount <= 4) {
                     jLabel7.setText("The Cautious Realist");
                     jTextArea1.setText(
                             "You see both the benefits and dangers of technology. " +
                             "You believe progress is good, but needs rules and accountability."
                     );
+                // profile: the critical thinker - between 4 (exclusive) and 6 (inclusive) unethical verdicts
                 } else if (unethicalCount <= 6) {
                     jLabel7.setText("The Critical Thinker");
                     jTextArea1.setText(
                             "You are skeptical of how technology is being used. " +
                             "You believe the tech industry needs serious reform to protect people."
                     );
+                // profile: the ethics watchdog - between 6 (exclusive) and 8 (inclusive) unethical verdicts
                 } else {
                     jLabel7.setText("The Ethics Watchdog");
                     jTextArea1.setText(
                             "You believe technology is causing more harm than good right now. " +
                             "You think strong laws and ethical standards are urgently needed."
                     );
-                }
+                } // end if-statement
             }
         });
     }
@@ -86,6 +94,7 @@ public class Results extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +120,13 @@ public class Results extends javax.swing.JFrame {
 
         jLabel7.setText("jLabel7");
 
+        jButton1.setText("Save to File");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,6 +138,9 @@ public class Results extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                         .addGap(116, 116, 116))
@@ -156,11 +175,31 @@ public class Results extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            FileWriter writer = new FileWriter("data.txt", false);
+            PrintWriter output = new PrintWriter(writer);
+            output.println("User Feedback:");
+            // loop through each verdict and reason
+            for (int i = 0; i < Main.cases.length; i++) {
+                output.println("\nStudent Verdict: " +
+                        Main.cases[i].verdict.getStudentVerdict() +
+                        "\nReason for Decision: " + Main.cases[i].verdict.getReason());
+            } // close file
+            output.close();
+            } catch (IOException e) {
+                System.err.println("Java Exception: " + e);
+        } // end try-catch
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,6 +237,7 @@ public class Results extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

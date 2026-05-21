@@ -20,7 +20,7 @@ public class Sc1 extends javax.swing.JFrame {
             @Override
             public void windowActivated(WindowEvent e) {
                 System.out.println("JFrame is now focused!");
-                //add code here
+                // display info from array
                 jLabel2.setText(Main.cases[0].getCaseTitle());
                 jLabel4.setText(Main.cases[0].getCategory());
                 jTextArea1.setText(Main.cases[0].getCaseDescription());
@@ -156,17 +156,19 @@ public class Sc1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        // proceed to next frame
         new Sc2().setVisible(true);
         this.setVisible(false);
+        // store reason in array
         Main.cases[0].verdict.setReason(jTextArea2.getText());
-        
+        // store verdict in array
         if (jRadioButton1.isSelected()) {
             System.out.println("Selected: ethical");
             Main.cases[0].verdict.setStudentVerdict("ethical");
         } else if (jRadioButton2.isSelected()) {
             System.out.println("Selected: unethical");
             Main.cases[0].verdict.setStudentVerdict("unethical");
-        }
+        } // end if-statement
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
