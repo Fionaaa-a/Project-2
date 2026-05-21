@@ -53,7 +53,7 @@ public class Sc8 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Scenario #2");
+        jLabel1.setText("Scenario #8");
 
         jLabel2.setText("jLabel2");
 
@@ -143,9 +143,17 @@ public class Sc8 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Main().setVisible(true);
+        new Results().setVisible(true);
         this.setVisible(false);
         Main.cases[7].verdict.setReason(jTextArea2.getText());
+        
+        if (jRadioButton1.isSelected()) {
+            System.out.println("Selected: ethical");
+            Main.cases[7].verdict.setStudentVerdict("ethical");
+        } else if (jRadioButton2.isSelected()) {
+            System.out.println("Selected: unethical");
+            Main.cases[7].verdict.setStudentVerdict("unethical");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

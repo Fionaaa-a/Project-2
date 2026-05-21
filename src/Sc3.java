@@ -62,7 +62,7 @@ public class Sc3 extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Scenario #2");
+        jLabel1.setText("Scenario #3");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Reason for Verdict");
@@ -146,6 +146,14 @@ public class Sc3 extends javax.swing.JFrame {
         new Sc4().setVisible(true);
         this.setVisible(false);
         Main.cases[2].verdict.setReason(jTextArea2.getText());
+        
+        if (jRadioButton1.isSelected()) {
+            System.out.println("Selected: ethical");
+            Main.cases[2].verdict.setStudentVerdict("ethical");
+        } else if (jRadioButton2.isSelected()) {
+            System.out.println("Selected: unethical");
+            Main.cases[2].verdict.setStudentVerdict("unethical");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

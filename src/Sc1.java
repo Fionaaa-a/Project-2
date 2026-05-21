@@ -161,10 +161,10 @@ public class Sc1 extends javax.swing.JFrame {
         Main.cases[0].verdict.setReason(jTextArea2.getText());
         
         if (jRadioButton1.isSelected()) {
-            System.out.println("selected: ethical");
+            System.out.println("Selected: ethical");
             Main.cases[0].verdict.setStudentVerdict("ethical");
         } else if (jRadioButton2.isSelected()) {
-            System.out.println("selected: unethical");
+            System.out.println("Selected: unethical");
             Main.cases[0].verdict.setStudentVerdict("unethical");
         }
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -2,40 +2,70 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter;
 
 /**
  *
- * @author user
+ * @author yyuqi
  */
 public class Results extends javax.swing.JFrame {
-    public void setresult(){
-        ethical.setText(Integer.toString(Main.ethical));
-        int uneth = 8 - Main.ethical;
-        unethical.setText(Integer.toString(uneth));
-        if (Main.ethical<=2){
-            result.setText("profile name: The Tech Optimist\n" +
-                            "profile description: You see technology as largely a force for good. "+
-                            "You tend to trust that companies and developers have good intentions.");
-        }else if(Main.ethical<=4){
-            result.setText("profile name: The Cautious Realist\n" +
-                            "profile description: You see both the benefits and dangers of technology. "+
-                            "You believe progress is good, but needs rules and accountability.");
-        }else if(Main.ethical<=6){
-            result.setText("profile name: The Critical Thinker\n" +
-                            "profile description: You are skeptical of how technology is being used. "+
-                            "You believe the tech industry needs serious reform to protect people.");
-        }else{
-            result.setText("profile name: The Ethics Watchdog\n" +
-                            "profile description: You believe technology is causing more harm than good right now. "+
-                            "You think strong laws and ethical standards are urgently needed.");
-        }
 
-    }
     /**
      * Creates new form Results
      */
     public Results() {
         initComponents();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowActivated(WindowEvent e) {
+                System.out.println("JFrame is now focused!");
+                //add code here
+                int ethicalCount = 0;
+                int unethicalCount = 0;
+                
+                for (int i = 0; i < Main.cases.length; i++) {
+                    if (Main.cases[i].verdict != null) {
+                        String v = Main.cases[i].verdict.getStudentVerdict();
+                        
+                        if (v.equals("ethical")) {
+                            ethicalCount++;
+                        } else if (v.equals("unethical")) {
+                            unethicalCount++;
+                        }
+                    }
+                }
+                
+                jLabel4.setText(Integer.toString(ethicalCount));
+                jLabel5.setText(Integer.toString(unethicalCount));
+                
+                if (unethicalCount <= 2) {
+                    jLabel7.setText("The Tech Optimist");
+                    jTextArea1.setText(
+                            "You see technology as largely a force for good. " +
+                            "You tend to trust that companies and developers have good intentions."
+                    );
+                } else if (unethicalCount <= 4) {
+                    jLabel7.setText("The Cautious Realist");
+                    jTextArea1.setText(
+                            "You see both the benefits and dangers of technology. " +
+                            "You believe progress is good, but needs rules and accountability."
+                    );
+                } else if (unethicalCount <= 6) {
+                    jLabel7.setText("The Critical Thinker");
+                    jTextArea1.setText(
+                            "You are skeptical of how technology is being used. " +
+                            "You believe the tech industry needs serious reform to protect people."
+                    );
+                } else {
+                    jLabel7.setText("The Ethics Watchdog");
+                    jTextArea1.setText(
+                            "You believe technology is causing more harm than good right now. " +
+                            "You think strong laws and ethical standards are urgently needed."
+                    );
+                }
+            }
+        });
     }
 
     /**
@@ -47,75 +77,86 @@ public class Results extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        result = new javax.swing.JTextArea();
-        ethical = new javax.swing.JLabel();
-        unethical = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Result");
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("Results");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Ethical");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Unethical");
 
-        result.setColumns(20);
-        result.setRows(5);
-        jScrollPane2.setViewportView(result);
+        jLabel4.setText("jLabel4");
 
-        ethical.setText("jLabel4");
+        jLabel5.setText("jLabel5");
 
-        unethical.setText("jLabel5");
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Classification");
+
+        jLabel7.setText("jLabel7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(277, 277, 277))
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+                        .addGap(116, 116, 116))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(52, 52, 52))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(ethical)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(unethical)
-                .addGap(88, 88, 88))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3))
+                        .addGap(99, 99, 99)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(78, 78, 78)
                 .addComponent(jLabel1)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ethical)
-                    .addComponent(unethical))
-                .addGap(33, 33, 33)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
+                    .addComponent(jLabel6)
                     .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,12 +198,14 @@ public class Results extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ethical;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea result;
-    private javax.swing.JLabel unethical;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

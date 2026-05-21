@@ -74,7 +74,7 @@ public class Sc5 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Scenario #2");
+        jLabel1.setText("Scenario #5");
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -146,6 +146,14 @@ public class Sc5 extends javax.swing.JFrame {
         new Sc6().setVisible(true);
         this.setVisible(false);
         Main.cases[4].verdict.setReason(jTextArea2.getText());
+        
+        if (jRadioButton1.isSelected()) {
+            System.out.println("Selected: ethical");
+            Main.cases[4].verdict.setStudentVerdict("ethical");
+        } else if (jRadioButton2.isSelected()) {
+            System.out.println("Selected: unethical");
+            Main.cases[4].verdict.setStudentVerdict("unethical");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

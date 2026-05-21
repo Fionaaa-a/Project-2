@@ -146,7 +146,14 @@ public class Sc2 extends javax.swing.JFrame {
         new Sc3().setVisible(true);
         this.setVisible(false);
         Main.cases[1].verdict.setReason(jTextArea2.getText());
-
+        
+        if (jRadioButton1.isSelected()) {
+            System.out.println("Selected: ethical");
+            Main.cases[1].verdict.setStudentVerdict("ethical");
+        } else if (jRadioButton2.isSelected()) {
+            System.out.println("Selected: unethical");
+            Main.cases[1].verdict.setStudentVerdict("unethical");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

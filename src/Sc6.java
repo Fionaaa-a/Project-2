@@ -53,7 +53,7 @@ public class Sc6 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Scenario #2");
+        jLabel1.setText("Scenario #6");
 
         jRadioButton2.setText("Unethical");
 
@@ -146,6 +146,14 @@ public class Sc6 extends javax.swing.JFrame {
         new Sc7().setVisible(true);
         this.setVisible(false);
         Main.cases[5].verdict.setReason(jTextArea2.getText());
+        
+        if (jRadioButton1.isSelected()) {
+            System.out.println("Selected: ethical");
+            Main.cases[5].verdict.setStudentVerdict("ethical");
+        } else if (jRadioButton2.isSelected()) {
+            System.out.println("Selected: unethical");
+            Main.cases[5].verdict.setStudentVerdict("unethical");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
