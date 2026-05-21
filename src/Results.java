@@ -24,9 +24,10 @@ public class Results extends javax.swing.JFrame {
             public void windowActivated(WindowEvent e) {
                 System.out.println("JFrame is now focused!");
                 //add code here
+                // initialize variables
                 int ethicalCount = 0;
                 int unethicalCount = 0;
-                
+                // loop through cases and count verdicts
                 for (int i = 0; i < Main.cases.length; i++) {
                     if (Main.cases[i].verdict != null) {
                         String v = Main.cases[i].verdict.getStudentVerdict();
@@ -35,38 +36,42 @@ public class Results extends javax.swing.JFrame {
                             ethicalCount++;
                         } else if (v.equals("unethical")) {
                             unethicalCount++;
-                        }
-                    }
-                }
+                        } // end if-statement
+                    } // end if-statement
+                } // end for-loop
                 
                 jLabel4.setText(Integer.toString(ethicalCount));
                 jLabel5.setText(Integer.toString(unethicalCount));
                 
+                // profile: the tech optimist - between 0 and 2 (inclusive) unethical verdicts
                 if (unethicalCount <= 2) {
                     jLabel7.setText("The Tech Optimist");
                     jTextArea1.setText(
                             "You see technology as largely a force for good. " +
                             "You tend to trust that companies and developers have good intentions."
                     );
+                // profile: the cautious realist - between 2 (exclusive) and 4 (inclusive) unethical verdicts
                 } else if (unethicalCount <= 4) {
                     jLabel7.setText("The Cautious Realist");
                     jTextArea1.setText(
                             "You see both the benefits and dangers of technology. " +
                             "You believe progress is good, but needs rules and accountability."
                     );
+                // profile: the critical thinker - between 4 (exclusive) and 6 (inclusive) unethical verdicts
                 } else if (unethicalCount <= 6) {
                     jLabel7.setText("The Critical Thinker");
                     jTextArea1.setText(
                             "You are skeptical of how technology is being used. " +
                             "You believe the tech industry needs serious reform to protect people."
                     );
+                // profile: the ethics watchdog - between 6 (exclusive) and 8 (inclusive) unethical verdicts
                 } else {
                     jLabel7.setText("The Ethics Watchdog");
                     jTextArea1.setText(
                             "You believe technology is causing more harm than good right now. " +
                             "You think strong laws and ethical standards are urgently needed."
                     );
-                }
+                } // end if-statement
             }
         });
     }
@@ -193,7 +198,7 @@ public class Results extends javax.swing.JFrame {
             output.close();
             } catch (IOException e) {
                 System.err.println("Java Exception: " + e);
-        }
+        } // end try-catch
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
