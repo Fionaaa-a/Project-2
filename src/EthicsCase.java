@@ -33,6 +33,6 @@ public class EthicsCase {
     }
     
     public String toString(){
-        return "...";
+        return this.getCaseTitle()+ this.getCaseDescription()+ this.getCategory() ;
     }
 }
