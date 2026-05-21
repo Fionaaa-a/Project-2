@@ -4,6 +4,9 @@
  */
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileWriter;
 
 /**
  *
@@ -86,6 +89,7 @@ public class Results extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +115,13 @@ public class Results extends javax.swing.JFrame {
 
         jLabel7.setText("jLabel7");
 
+        jButton1.setText("Save to File");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,6 +133,9 @@ public class Results extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                         .addGap(116, 116, 116))
@@ -156,11 +170,31 @@ public class Results extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            FileWriter writer = new FileWriter("data.txt", false);
+            PrintWriter output = new PrintWriter(writer);
+            output.println("User Feedback:");
+            // loop through each verdict and reason
+            for (int i = 0; i < Main.cases.length; i++) {
+                output.println("\nStudent Verdict: " +
+                        Main.cases[i].verdict.getStudentVerdict() +
+                        "\nReason for Decision: " + Main.cases[i].verdict.getReason());
+            } // close file
+            output.close();
+            } catch (IOException e) {
+                System.err.println("Java Exception: " + e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,6 +232,7 @@ public class Results extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
