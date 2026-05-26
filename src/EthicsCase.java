@@ -4,39 +4,68 @@
  */
 
 /**
- *
- * @author user
+ * Represents a general ethics case.
+ * This superclass stores common information shared
+ * by all specific ethics case types.
+ * @author Fiona and Ivy
  */
 public class EthicsCase {
     private String caseTitle;
     private String description;
     private String category;
     public Verdict verdict;
-    
-    public EthicsCase(String caseTitle, String description, String category){
-        this.caseTitle=caseTitle;
-        this.description=description;
-        this.category=category;
+
+    /**
+     * Constructs an EthicsCase object.
+     * @param caseTitle the title of the ethics case
+     * @param description the description of the ethics case
+     * @param category the category of the ethics case
+     */
+    public EthicsCase(String caseTitle, String description, String category) {
+        this.caseTitle = caseTitle;
+        this.description = description;
+        this.category = category;
         this.verdict = new Verdict();
     }
-    
-    public String getCaseTitle(){
+
+    /**
+     * Returns the title of the ethics case.
+     * @return the case title
+     */
+    public String getCaseTitle() {
         return caseTitle;
     }
-    
-    public String getCaseDescription(){
+
+    /**
+     * Returns the description of the ethics case.
+     * @return the case description
+     */
+    public String getCaseDescription() {
         return description;
     }
-    
-    public String getCategory(){
+
+    /**
+     * Returns the category of the ethics case.
+     * @return the case category
+     */
+    public String getCategory() {
         return category;
     }
-    
-    public void getCaseType(){
+
+    /**
+     * Displays the type of ethics case.
+     */
+    public void getCaseType() {
         System.out.println("This is an Ethics Case!");
     }
-    
-    public String toString(){
-        return this.getCaseTitle()+ this.getCaseDescription()+ this.getCategory() ;
+
+    /**
+     * Returns a string representation of the ethics case.
+     * @return combined case information
+     */
+    public String toString() {
+        return this.getCaseTitle()
+                + this.getCaseDescription()
+                + this.getCategory();
     }
 }

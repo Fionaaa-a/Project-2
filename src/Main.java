@@ -8,72 +8,82 @@ import java.io.FileWriter;
 import java.io.File;
 import java.util.Scanner;
 /**
- *
- * @author user
+ * Main JFrame for the Ethical Decision Analyzer program.
+ * This class loads all ethics cases from a text file and stores them into the cases array.
+ * @author Fiona and Ivy
  */
 public class Main extends javax.swing.JFrame {
-    // initialize variables
-    public static EthicsCase [] cases = new EthicsCase[8];
+    // Array that stores all ethics cases
+    public static EthicsCase[] cases = new EthicsCase[8];
+    // Constant value representing the total number of cases
     public static final int TOTAL = 8;
-    // get total method (static)
+    
+    /**
+     * Displays the total number of ethics cases.
+     */
     public static void getTotal() {
         System.out.print(TOTAL);
     }
-
+    
     /**
      * Creates new form Main
+     * Loads ethics case data from the text file.
      */
     public Main() {
+        // Initialize all GUI components
         initComponents();
-        
-//        this.setVisible(true);
-        int line=0;
-        try{
-            
+        // Variable used to track line number in the file
+        int line = 0;
+        try {
+            // Open the input file
             Scanner fileInput = new Scanner(new File("user_database.txt"));
-            
-//            Scanner fileInput = new Scanner(new File("goog.txt"));
-            while(fileInput.hasNext()){
-                 
+            // Read each line from the file
+            while (fileInput.hasNext()) {
+                // Store the current line
                 String output = fileInput.nextLine();
-                String [] info = output.split(",");
+                // Split the line using commas
+                String[] info = output.split(",");
+                // Extract title, description, and category
                 String title = info[0].trim();
                 String description = info[1].trim();
                 String category = info[2].trim();
-                if (line==0){
-                    cases[0]=new PrivacyCase(title, description, category);
-                   
-                }else if(line==1){
-                    cases [1] = new AlgorithmCase(title, description, category);
-                }else if(line==2){
-                    cases [2] = new MisinformationCase(title, description, category);
-                }else if (line==3){
-                    cases [3] = new IntellectualPropertyCase(title, description, category);
-                }else if (line==4){
-                    cases[4]=new PrivacyCase(title, description, category);
-                }else if(line==5){
-                    cases [5] = new AlgorithmCase(title, description, category);
-                }else if(line==6){
-                    cases [6] = new MisinformationCase(title, description, category);
-                }else if (line==7){
-                    cases [7] = new IntellectualPropertyCase(title, description, category);
+                // Create appropriate object depending on line number
+                if (line == 0) {
+                    // Create PrivacyCase object
+                    cases[0] = new PrivacyCase(title, description, category);
+                } else if (line == 1) {
+                    // Create AlgorithmCase object
+                    cases[1] = new AlgorithmCase(title, description, category);
+                } else if (line == 2) {
+                    // Create MisinformationCase object
+                    cases[2] = new MisinformationCase(title, description, category);
+                } else if (line == 3) {
+                    // Create IntellectualPropertyCase object
+                    cases[3] = new IntellectualPropertyCase(title, description, category);
+                } else if (line == 4) {
+                    // Create second PrivacyCase object
+                    cases[4] = new PrivacyCase(title, description, category);
+                } else if (line == 5) {
+                    // Create second AlgorithmCase object
+                    cases[5] = new AlgorithmCase(title, description, category);
+                } else if (line == 6) {
+                    // Create second MisinformationCase object
+                    cases[6] = new MisinformationCase(title, description, category);
+                } else if (line == 7) {
+                    // Create second IntellectualPropertyCase object
+                    cases[7] = new IntellectualPropertyCase(title, description, category);
                 }
+                // Move to the next line
                 line++;
             }
+            // Close the scanner
             fileInput.close();
-        }catch(IOException e){
+        } catch (IOException e) {
+            // Display error message if file cannot be read
             System.err.println("Error");
-          
-            
         }
-       
-
-        
-        
     }
     
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -158,52 +168,11 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//        Scenario1 s1 = new Scenario1(cases); 
-//        s1.setVisible(true);
-
+        //Close Main frame and open Sc1 frame
         new Sc1().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

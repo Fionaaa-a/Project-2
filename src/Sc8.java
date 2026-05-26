@@ -6,14 +6,10 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
 
 /**
- *
- * @author 343033031
- */
+* Display ethics cases and allow the user to judge and state their reason.
+* @author Fiona and Ivy
+*/
 public class Sc8 extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Sc8
-     */
     public Sc8() {
         initComponents();
         addWindowListener(new WindowAdapter() {

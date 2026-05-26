@@ -6,14 +6,10 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
 
 /**
- *
- * @author 343033031
- */
+* Display ethics cases and allow the user to judge and state their reason.
+* @author Fiona and Ivy
+*/
 public class Sc6 extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Sc6
-     */
     public Sc6() {
         initComponents();
         addWindowListener(new WindowAdapter() {
@@ -21,7 +17,6 @@ public class Sc6 extends javax.swing.JFrame {
             public void windowActivated(WindowEvent e) {
             Main.cases[5].getCaseType();
                 System.out.println("JFrame is now focused!");
-                //add code here
                 // display info from array
                 jLabel2.setText(Main.cases[5].getCaseTitle());
                 jLabel4.setText(Main.cases[5].getCategory());

@@ -5,68 +5,66 @@
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author user
+ * Analysis JFrame used to display explanations for why each ethics scenario is considered unethical.
+ * Users can press the Next button to move through all 8 scenario analyses.
+ * @author Fiona and Ivy
  */
 public class Analysis extends javax.swing.JFrame {
+    // Keeps track of the current analysis being displayed
     int index = 0;
+    // Array storing all analysis explanations
     String[] analysisTexts = {
-        
-        // 1
-        "The Always-On Microphone is unethical because the\n"
+        // Analysis for case 1
+        "Q1: The Always-On Microphone is unethical because the\n"
         + "company recorded private conversations without \n"
         + "user permission. This violates privacy rights \n"
         + "and users did not consent to employees \n"
         + "listening to their recordings.",
-
-        // 2
-        "The Biased Hiring Bot is unethical because the AI\n"
+        // Analysis for case 2
+        "Q2: The Biased Hiring Bot is unethical because the AI\n"
         + "unfairly ranked male applicants higher than \n"
         + "equally qualified female applicants. This creates\n"
-        + " gender discrimination and unequal opportunities.",
-
-        // 3
-        "The Deepfake Politician is unethical because fake \n"
+        + "gender discrimination and unequal opportunities.",
+        // Analysis for case 3
+        "Q3: The Deepfake Politician is unethical because fake \n"
         + "videos can spread misinformation and manipulate \n"
         + "voters. People may believe false information before \n"
         + "the truth is discovered.",
-
-        // 4
-        "AI Trained on Artist Work is unethical because \n"
+        // Analysis for case 4
+        "Q4: AI Trained on Artist Work is unethical because \n"
         + "artists’ work was used without permission, credit, \n"
         + "or payment. This disrespects intellectual property \n"
         + "rights and creative ownership.",
-
-        // 5
-        "The Constant Tracker is unethical because the weather \n"
+        // Analysis for case 5
+        "Q5: The Constant Tracker is unethical because the weather \n"
         + "app tracked users’ locations even when the app was \n"
         + "closed. Users were not fully aware that their personal \n"
         + "location data was being collected.",
-
-        // 6
-        "The Judge is unethical because the facial recognition AI \n"
+        // Analysis for case 6
+        "Q6: The Judge is unethical because the facial recognition AI \n"
         + "was trained mostly on light-skinned individuals. This \n"
         + "can create racial bias and unfair treatment in the justice\n"
         + "system.",
-
-        // 7
-        "The Deepfake Doctor is unethical because fake medical \n"
+        // Analysis for case 7
+        "Q7: The Deepfake Doctor is unethical because fake medical \n"
         + "videos can spread dangerous health misinformation. \n"
         + "People may trust false medical advice and make \n"
         + "harmful decisions.",
-
-        // 8
-        "Stealing Art Work is unethical because the company used \n"
+        // Analysis for case 8
+        "Q8: Stealing Art Work is unethical because the company used \n"
         + "an artist’s drawing without permission. Creators should \n"
         + "have control over how their work is used."
     };
 
+    /**
+     * Creates new form Analysis
+     * Displays the first analysis when the frame opens.
+     */
     public Analysis() {
         initComponents();
-
+        // Display the first analysis text
         txtAnalysis.setText(analysisTexts[index]);
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,57 +120,25 @@ public class Analysis extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        index++;
-        if (index < analysisTexts.length) {
-            txtAnalysis.setText(analysisTexts[index]);
-        } else {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "No more analysis.",
-                    "Finished",
-                    JOptionPane.PLAIN_MESSAGE
-            );
-            btnNext.setEnabled(false);
-        }
+       // Move to the next analysis
+       index++;
+       // Check if there are still analyses remaining
+       if (index < analysisTexts.length) {
+           // Display the next analysis text
+           txtAnalysis.setText(analysisTexts[index]);
+       } else {
+           // Display message when all analyses are finished
+           JOptionPane.showMessageDialog(
+                   this,
+                   "No more analysis.",
+                   "Finished",
+                   JOptionPane.PLAIN_MESSAGE
+           );
+           // Disable the button so it cannot be pressed again
+           btnNext.setEnabled(false);
+       }
     }//GEN-LAST:event_btnNextActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Analysis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Analysis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Analysis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Analysis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Analysis().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;

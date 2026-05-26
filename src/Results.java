@@ -9,13 +9,15 @@ import java.io.PrintWriter;
 import java.io.FileWriter;
 
 /**
- *
- * @author yyuqi
+ * Results JFrame that displays the user's ethical decision results and classification profile.
+ * Users can also save results to a file, open the analysis page, or give feedback.
+ * @author Fiona and Ivy
  */
 public class Results extends javax.swing.JFrame {
 
     /**
-     * Creates new form Results
+     * Creates new form Results.
+     * Calculates and displays user results whenever the window becomes active.
      */
     public Results() {
         initComponents();
@@ -23,7 +25,6 @@ public class Results extends javax.swing.JFrame {
             @Override
             public void windowActivated(WindowEvent e) {
                 System.out.println("JFrame is now focused!");
-                //add code here
                 Main.getTotal(); // print total
                 // initialize variables
                 int ethicalCount = 0;
@@ -207,7 +208,6 @@ public class Results extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         try {
             FileWriter writer = new FileWriter("data.txt", false);
             PrintWriter output = new PrintWriter(writer);
@@ -225,50 +225,16 @@ public class Results extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnalysisActionPerformed
+        //Close this frame and open analysis frame
         new Analysis().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_AnalysisActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Close this frame and open deedback frame
         new Feedback().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Results.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Results.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Results.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Results.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Results().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Analysis;
     private javax.swing.JButton jButton1;
