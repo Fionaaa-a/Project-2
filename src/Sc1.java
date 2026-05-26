@@ -15,7 +15,7 @@ public class Sc1 extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowActivated(WindowEvent e) {
-                Main.cases[0].getCaseType();
+                displayCaseDetails(Main.cases[0]);
                 System.out.println("JFrame is now focused!");
                 // display info from array
                 jLabel2.setText(Main.cases[0].getCaseTitle());
@@ -23,6 +23,17 @@ public class Sc1 extends javax.swing.JFrame {
                 jTextArea1.setText(Main.cases[0].getCaseDescription());
             }
         });
+    }
+    
+    /**
+     * This is a standard polymorphic method.
+     * It explicitly accepts the superclass 'EthicsCase' as a parameter, 
+     * allowing any of its distinct subclass objects to be passed in.
+     * * @param anyCase Any subclass object that inherits from EthicsCase.
+     */
+    public void displayCaseDetails(EthicsCase anyCase) {
+        // Dynamic binding: automatically invokes the overridden method of the specific subclass at runtime
+        anyCase.getCaseType();
     }
 
     /**
