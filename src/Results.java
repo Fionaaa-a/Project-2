@@ -47,28 +47,28 @@ public class Results extends javax.swing.JFrame {
                 if (unethicalCount <= 2) {
                     jLabel7.setText("The Tech Optimist");
                     jTextArea1.setText(
-                            "You see technology as largely a force for good. " +
+                            "You see technology as largely a force for good.\n " +
                             "You tend to trust that companies and developers have good intentions."
                     );
                 // profile: the cautious realist - between 2 (exclusive) and 4 (inclusive) unethical verdicts
                 } else if (unethicalCount <= 4) {
                     jLabel7.setText("The Cautious Realist");
                     jTextArea1.setText(
-                            "You see both the benefits and dangers of technology. " +
+                            "You see both the benefits and dangers of technology.\n " +
                             "You believe progress is good, but needs rules and accountability."
                     );
                 // profile: the critical thinker - between 4 (exclusive) and 6 (inclusive) unethical verdicts
                 } else if (unethicalCount <= 6) {
                     jLabel7.setText("The Critical Thinker");
                     jTextArea1.setText(
-                            "You are skeptical of how technology is being used. " +
+                            "You are skeptical of how technology is being used.\n " +
                             "You believe the tech industry needs serious reform to protect people."
                     );
                 // profile: the ethics watchdog - between 6 (exclusive) and 8 (inclusive) unethical verdicts
                 } else {
                     jLabel7.setText("The Ethics Watchdog");
                     jTextArea1.setText(
-                            "You believe technology is causing more harm than good right now. " +
+                            "You believe technology is causing more harm than good right now.\n " +
                             "You think strong laws and ethical standards are urgently needed."
                     );
                 } // end if-statement
@@ -95,6 +95,7 @@ public class Results extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        Analysis = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,7 +103,7 @@ public class Results extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Results");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -127,23 +128,20 @@ public class Results extends javax.swing.JFrame {
             }
         });
 
+        Analysis.setText("Analysis");
+        Analysis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnalysisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(277, 277, 277))
             .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                        .addGap(116, 116, 116))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -156,14 +154,25 @@ public class Results extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Analysis))
+                        .addComponent(jScrollPane1)))
+                .addGap(52, 52, 52))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(35, 35, 35)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel6)
@@ -176,8 +185,10 @@ public class Results extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(Analysis))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -200,6 +211,11 @@ public class Results extends javax.swing.JFrame {
                 System.err.println("Java Exception: " + e);
         } // end try-catch
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void AnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnalysisActionPerformed
+        new Analysis().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_AnalysisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,6 +253,7 @@ public class Results extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Analysis;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
