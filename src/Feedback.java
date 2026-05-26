@@ -149,7 +149,7 @@ public class Feedback extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // rate experience through slider
         int rating = jSlider1.getValue();
-        
+        // print user rating
         if (rating <= 10) {
             System.out.println("Selected: terrible");
         } else if (rating <= 30) {
@@ -176,7 +176,7 @@ public class Feedback extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        // TODO add your handling code here:
+        // display slider value
         int value = jSlider1.getValue();
         jLabel4.setText("Rating: " + value);
     }//GEN-LAST:event_jSlider1StateChanged
