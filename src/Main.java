@@ -12,7 +12,13 @@ import java.util.Scanner;
  * @author user
  */
 public class Main extends javax.swing.JFrame {
+    // initialize variables
     public static EthicsCase [] cases = new EthicsCase[8];
+    public static final int TOTAL = 8;
+    // get total method (static)
+    public static void getTotal() {
+        System.out.print(TOTAL);
+    }
 
     /**
      * Creates new form Main

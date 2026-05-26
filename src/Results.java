@@ -24,6 +24,7 @@ public class Results extends javax.swing.JFrame {
             public void windowActivated(WindowEvent e) {
                 System.out.println("JFrame is now focused!");
                 //add code here
+                Main.getTotal(); // print total
                 // initialize variables
                 int ethicalCount = 0;
                 int unethicalCount = 0;

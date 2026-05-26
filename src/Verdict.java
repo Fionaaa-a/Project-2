@@ -49,6 +49,6 @@ public class Verdict {
     }
     
     public String toString(){
-        return "...";
+        return "Processing verdict...";
     }
 }
