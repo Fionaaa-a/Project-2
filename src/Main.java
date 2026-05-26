@@ -22,7 +22,7 @@ public class Main extends javax.swing.JFrame {
      * Displays the total number of ethics cases.
      */
     public static void getTotal() {
-        System.out.print(TOTAL);
+        System.out.println(TOTAL);
     }
     
     /**
