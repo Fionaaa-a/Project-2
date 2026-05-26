@@ -19,6 +19,7 @@ public class Sc7 extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowActivated(WindowEvent e) {
+            Main.cases[6].getCaseType();
                 System.out.println("JFrame is now focused!");
                 //add code here
                 // display info from array

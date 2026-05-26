@@ -32,6 +32,10 @@ public class EthicsCase {
         return category;
     }
     
+    public void getCaseType(){
+        System.out.println("This is an Ethics Case!");
+    }
+    
     public String toString(){
         return this.getCaseTitle()+ this.getCaseDescription()+ this.getCategory() ;
     }

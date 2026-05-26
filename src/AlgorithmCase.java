@@ -19,6 +19,10 @@ public class AlgorithmCase extends EthicsCase {
         return biasType;
     }
     
+    public void getCaseType(){
+        System.out.println("This is an Algorithm Case!");
+    }
+    
     public String toString() {
         return "placeholder text";
     }

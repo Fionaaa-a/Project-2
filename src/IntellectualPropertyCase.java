@@ -19,6 +19,10 @@ public class IntellectualPropertyCase extends EthicsCase {
         return ipType;
     }
     
+    public void getCaseType(){
+        System.out.println("This is an Intellectual Property Case!");
+    }
+    
     public String toString() {
         return "placeholder text";
     }

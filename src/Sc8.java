@@ -19,8 +19,8 @@ public class Sc8 extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowActivated(WindowEvent e) {
+            Main.cases[7].getCaseType();
                 System.out.println("JFrame is now focused!");
-                //add code here
                 // display info from array
                 jLabel2.setText(Main.cases[7].getCaseTitle());
                 jLabel4.setText(Main.cases[7].getCategory());

@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
  * @author user
@@ -17,6 +12,10 @@ public class MisinformationCase extends EthicsCase {
     
     public String getMediaType() {
         return mediaType;
+    }
+    
+    public void getCaseType(){
+        System.out.println("This is a Misinformation Case!");
     }
     
     public String toString() {
